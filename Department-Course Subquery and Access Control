@@ -9,8 +9,8 @@ CREATE TABLE Courses (
     dept_id INT NOT NULL,
     FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
 );
-DESCRIBE TABLE Departments;
-DESCRIBE TABLE Courses;
+DESCRIBE  Departments;
+DESCRIBE Courses;
 SELECT *FROM Departments;
 
 
@@ -38,16 +38,16 @@ SELECT *FROM Courses;
 --Part C
 
 
-SELECT department_name
+SELECT dept_name
 FROM Departments
-WHERE department_id IN (
-    SELECT department_id
+WHERE dept_id IN (
+    SELECT dept_id
     FROM Courses
-    GROUP BY department_id
+    GROUP BY dept_id
     HAVING COUNT(course_id) > 2
 );
 
 --Part D
 
-GRANT SELECT ON Courses TO viewer_user;
+GRANT SELECT ON Courses TO 'viewer_user'@'localhost';
 
