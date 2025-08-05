@@ -38,12 +38,12 @@ SELECT *FROM Courses;
 --Part C
 
 
-SELECT dept_name
+SELECT department_name
 FROM Departments
-WHERE dept_id IN (
-    SELECT dept_id
+WHERE department_id IN (
+    SELECT department_id
     FROM Courses
-    GROUP BY dept_id
+    GROUP BY department_id
     HAVING COUNT(course_id) > 2
 );
 
